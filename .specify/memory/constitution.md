@@ -1,50 +1,90 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+Sync Impact Report
+- Version change: template -> 1.0.0
+- Modified principles:
+  - Principle slot 1 -> I. シンプルで直感的な学習体験
+  - Principle slot 2 -> II. 即時反映のフィードバック
+  - Principle slot 3 -> III. 小さな単位でのMVP反復
+  - Principle slot 4 -> IV. 学習価値を守る品質基準
+  - Principle slot 5 -> V. セキュアで保守しやすい実装
+- Added sections:
+  - 製品制約
+  - 開発ワークフロー
+- Removed sections:
+  - None
+- Templates requiring updates:
+  - ✅ updated /Users/ko/Documents/work/github/toeic-p5-quiz/.specify/templates/plan-template.md
+  - ✅ updated /Users/ko/Documents/work/github/toeic-p5-quiz/.specify/templates/spec-template.md
+  - ✅ updated /Users/ko/Documents/work/github/toeic-p5-quiz/.specify/templates/tasks-template.md
+  - ⚠ pending /Users/ko/Documents/work/github/toeic-p5-quiz/.specify/templates/commands/*.md (directory not present)
+  - ⚠ pending README.md (file not present)
+- Follow-up TODOs:
+  - None
+-->
+# TOEIC Part 5 Quiz Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. シンプルで直感的な学習体験
+すべての機能は、初見の学習者が説明なしで主要操作を完了できるUIを前提に
+設計しなければならない。画面ごとの主目的は1つに限定し、不要な設定、
+装飾、分岐導線を追加してはならない。仕様・実装レビューでは
+「この画面は何を最短で達成させるか」を明示し、説明できない要素は削除する。
+理由: TOEIC Part 5 の練習は短時間で繰り返し行われるため、操作負荷は学習効率を
+直接損なう。
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. 即時反映のフィードバック
+解答、設定変更、学習進捗の更新は、ユーザー操作後すぐにUIへ反映されなければ
+ならない。保存や再計算が非同期になる場合でも、状態変化中であることを即座に
+視覚化し、最終結果が確定した時点でUIを整合させること。ユーザーが
+「操作が受理されたか不明」と感じる待ち状態を放置してはならない。
+理由: 学習アプリでは反応速度と状態の分かりやすさが継続利用を左右する。
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. 小さな単位でのMVP反復
+開発は、独立して価値を示せる最小機能単位で進めなければならない。各仕様は
+MVPとして成立するユーザーストーリーをP1に定義し、設計・タスク・実装は
+その順で小さく分割すること。大規模な先回り実装、未検証の拡張前提設計、
+一括投入のリファクタリングは禁止する。理由: 小さな反復は学習体験の検証を
+早め、誤った方向への投資を減らす。
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. 学習価値を守る品質基準
+すべての機能は、学習者にとっての正確さと分かりやすさを損なってはならない。
+問題文、選択肢、正答、解説、進捗表示など学習結果に影響する要素には、
+受け入れ条件または検証手段を仕様へ明記すること。新しいユーザーストーリーは
+独立して確認できる受け入れシナリオを持たなければならない。表示の崩れ、
+誤答判定、状態不整合を既知のまま出荷してはならない。理由: 学習アプリでは
+小さな不正確さでも信頼を大きく損なう。
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. セキュアで保守しやすい実装
+実装は、最小権限、入力検証、依存追加の妥当性確認を前提としなければならない。
+ユーザーデータや学習履歴を扱う場合は、保存対象と利用目的を仕様に明記し、
+不要な個人情報を収集してはならない。新規依存や複雑な抽象化は、現行のMVPを
+単純に実現できない場合に限り導入できる。理由: セキュリティ事故と過剰設計は、
+小規模反復の速度と信頼性を同時に損なう。
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+## 製品制約
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+- すべての機能仕様は、対象ユーザー、主要操作、即時フィードバック方法を含めること。
+- UI要件には、主要画面での最短操作、状態変化の見え方、エラー時の案内を含めること。
+- 性能要件は、少なくとも主要操作に対して体感上の遅延を避ける目標を定義すること。
+- 学習データを保存する場合は、保存項目、保持期間、削除方法を仕様または運用文書に残すこと。
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+## 開発ワークフロー
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+- 仕様は、ユーザーストーリーを優先度順に並べ、P1だけで価値提供できる形にすること。
+- 実装計画では、Constitution Check に各原則への適合を明示し、違反は理由付きで記録すること。
+- タスクはユーザーストーリー単位で独立実装・独立検証できる粒度に分割すること。
+- 各反復では、実装前に受け入れ条件を確認し、完了時にUIの即時反映と学習価値を検証すること。
+- セキュリティまたは個人情報の扱いに変更が入る場合は、リリース前に影響範囲をレビューすること。
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+この憲章は、仕様、計画、タスク、実装判断に優先する。変更は、対象原則、
+変更理由、関連テンプレートへの反映内容を明示した上でレビューしなければ
+ならない。バージョン運用は semantic versioning に従い、原則の削除や後方互換性の
+ない再定義は MAJOR、原則や必須ガイドの追加・実質拡張は MINOR、文言整理や
+非意味的修正は PATCH とする。すべての機能レビューと計画レビューでは、
+この憲章への適合確認を必須とし、不適合がある場合は修正または明示的な例外記録が
+必要である。
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2026-03-25 | **Last Amended**: 2026-03-25

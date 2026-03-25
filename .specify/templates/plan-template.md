@@ -31,7 +31,11 @@
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+- Simplicity: Identify the single primary user action for the feature and list any UI elements removed or deferred to keep the flow intuitive.
+- Immediate Feedback: Define how user actions update the UI immediately, including loading, success, and error states.
+- MVP Iteration: Show the smallest independently valuable slice to ship first and explain what is explicitly out of scope for this iteration.
+- Learning Quality: List the acceptance scenarios or validation steps that protect answer accuracy, explanations, scoring, and progress display.
+- Security & Maintainability: Record data handled, validation needs, privacy impact, and justify any new dependency or abstraction.
 
 ## Project Structure
 

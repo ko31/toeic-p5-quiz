@@ -95,6 +95,18 @@
 - **FR-006**: System MUST authenticate users via [NEEDS CLARIFICATION: auth method not specified - email/password, SSO, OAuth?]
 - **FR-007**: System MUST retain user data for [NEEDS CLARIFICATION: retention period not specified]
 
+### UX & Feedback Requirements *(mandatory)*
+
+- Describe the primary user flow in the minimum number of steps needed to complete the task.
+- Define what changes on screen immediately after each important user action.
+- Define how loading, empty, error, and success states are communicated without ambiguity.
+
+### Data & Security Requirements *(include if feature stores or processes user data)*
+
+- List the user data or learning history touched by this feature.
+- State why each stored field is necessary for the current MVP.
+- Define input validation, access constraints, and deletion or reset expectations when applicable.
+
 ### Key Entities *(include if feature involves data)*
 
 - **[Entity 1]**: [What it represents, key attributes without implementation]
@@ -113,6 +125,7 @@
 - **SC-002**: [Measurable metric, e.g., "System handles 1000 concurrent users without degradation"]
 - **SC-003**: [User satisfaction metric, e.g., "90% of users successfully complete primary task on first attempt"]
 - **SC-004**: [Business metric, e.g., "Reduce support tickets related to [X] by 50%"]
+- **SC-005**: Users can understand whether their action succeeded, failed, or is processing without needing to refresh or retry blindly.
 
 ## Assumptions
 
@@ -126,3 +139,8 @@
 - [Assumption about scope boundaries, e.g., "Mobile support is out of scope for v1"]
 - [Assumption about data/environment, e.g., "Existing authentication system will be reused"]
 - [Dependency on existing system/service, e.g., "Requires access to the existing user profile API"]
+
+## MVP Boundaries *(mandatory)*
+
+- [What is included in the first releasable slice]
+- [What is intentionally deferred to a later iteration]
