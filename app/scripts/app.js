@@ -50,7 +50,7 @@ function getStatsLabel(session) {
   const answeredCount = session.attempts.length;
   const correctCount = session.attempts.filter((attempt) => attempt.isCorrect).length;
   const accuracy = answeredCount === 0 ? 0 : Math.round((correctCount / answeredCount) * 100);
-  return `正答率:${accuracy}%(${correctCount}/${answeredCount}) ・ ${formatElapsedTime(session.startedAt)}`;
+  return `正答率 ${accuracy}%(${correctCount}/${answeredCount}) / 経過時間 ${formatElapsedTime(session.startedAt)}`;
 }
 
 function startTimer() {
