@@ -1,0 +1,142 @@
+[
+  {
+    "id": "q001",
+    "prompt": "The marketing team will review the new brochure _____ the final version is printed.",
+    "choices": [
+      { "id": "A", "label": "before" },
+      { "id": "B", "label": "during" },
+      { "id": "C", "label": "unless" },
+      { "id": "D", "label": "although" }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "\"before\" is correct because the review happens earlier than printing.",
+    "category": "conjunction",
+    "difficulty": "easy"
+  },
+  {
+    "id": "q002",
+    "prompt": "Ms. Ito asked the assistant to send the updated schedule to all branch managers _____.",
+    "choices": [
+      { "id": "A", "label": "prompt" },
+      { "id": "B", "label": "promptly" },
+      { "id": "C", "label": "promptness" },
+      { "id": "D", "label": "prompts" }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The verb \"send\" needs an adverb, so \"promptly\" is the correct form.",
+    "category": "part of speech",
+    "difficulty": "easy"
+  },
+  {
+    "id": "q003",
+    "prompt": "All employees must submit travel expense reports within five days of _____ from a business trip.",
+    "choices": [
+      { "id": "A", "label": "return" },
+      { "id": "B", "label": "returned" },
+      { "id": "C", "label": "returning" },
+      { "id": "D", "label": "to return" }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The preposition \"of\" is followed naturally by the gerund \"returning.\"",
+    "category": "gerund",
+    "difficulty": "medium"
+  },
+  {
+    "id": "q004",
+    "prompt": "The software update is expected to improve data processing speed and reduce system errors _____.",
+    "choices": [
+      { "id": "A", "label": "significant" },
+      { "id": "B", "label": "significance" },
+      { "id": "C", "label": "significantly" },
+      { "id": "D", "label": "signify" }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "\"significantly\" correctly modifies the verbs \"improve\" and \"reduce.\"",
+    "category": "adverb",
+    "difficulty": "easy"
+  },
+  {
+    "id": "q005",
+    "prompt": "Customers may request a full refund _____ the item is returned in its original condition.",
+    "choices": [
+      { "id": "A", "label": "provided that" },
+      { "id": "B", "label": "because of" },
+      { "id": "C", "label": "despite" },
+      { "id": "D", "label": "instead of" }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "\"provided that\" introduces the condition required for a refund.",
+    "category": "conditional",
+    "difficulty": "medium"
+  },
+  {
+    "id": "q006",
+    "prompt": "The board was impressed by the consultant's _____ analysis of the regional sales trend.",
+    "choices": [
+      { "id": "A", "label": "thorough" },
+      { "id": "B", "label": "thoroughly" },
+      { "id": "C", "label": "thoroughness" },
+      { "id": "D", "label": "more thorough" }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "An adjective is needed to describe the noun \"analysis,\" so \"thorough\" is correct.",
+    "category": "adjective",
+    "difficulty": "easy"
+  },
+  {
+    "id": "q007",
+    "prompt": "Please contact the facilities team immediately if any equipment appears to be _____.",
+    "choices": [
+      { "id": "A", "label": "malfunction" },
+      { "id": "B", "label": "malfunctioned" },
+      { "id": "C", "label": "malfunctioning" },
+      { "id": "D", "label": "malfunctions" }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "After \"appears to be,\" the present participle works naturally to describe current condition.",
+    "category": "verb form",
+    "difficulty": "medium"
+  },
+  {
+    "id": "q008",
+    "prompt": "The annual conference will be held in Singapore this year, _____ several overseas partners have already confirmed attendance.",
+    "choices": [
+      { "id": "A", "label": "and" },
+      { "id": "B", "label": "so" },
+      { "id": "C", "label": "yet" },
+      { "id": "D", "label": "nor" }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "\"and\" links two related pieces of information without showing contrast or cause.",
+    "category": "coordinating conjunction",
+    "difficulty": "medium"
+  },
+  {
+    "id": "q009",
+    "prompt": "Because the warehouse is fully automated, orders are processed more _____ than before.",
+    "choices": [
+      { "id": "A", "label": "efficient" },
+      { "id": "B", "label": "efficiently" },
+      { "id": "C", "label": "efficiency" },
+      { "id": "D", "label": "efficienter" }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The verb phrase \"are processed\" is modified by the adverb \"efficiently.\"",
+    "category": "comparative adverb",
+    "difficulty": "easy"
+  },
+  {
+    "id": "q010",
+    "prompt": "The finance director recommended that the proposal _____ revised before it is shared with investors.",
+    "choices": [
+      { "id": "A", "label": "be" },
+      { "id": "B", "label": "is" },
+      { "id": "C", "label": "was" },
+      { "id": "D", "label": "being" }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "After \"recommended that,\" the base form is used in the subjunctive structure.",
+    "category": "subjunctive",
+    "difficulty": "hard"
+  }
+]

@@ -3,6 +3,7 @@
 Thumbs.db
 *.swo
 *.swp
+.vscode/
 .idea
 
 # npm packages
@@ -10,3 +11,12 @@ node_modules/
 
 # composer packages
 vendor/
+
+# Logs and environment
+*.log
+.env
+.env.*
+
+# Build artifacts
+dist/
+build/

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>TOEIC Part 5 Quiz</title>
+    <link rel="stylesheet" href="./styles/main.css" />
+  </head>
+  <body>
+    <main class="page">
+      <header class="hero">
+        <p class="eyebrow">TOEIC Part 5 Practice</p>
+        <h1>1問ずつ、すぐ確認。</h1>
+        <p class="lead">
+          ランダム出題された Part 5 形式の問題に答え、その場で正誤と解説を確認します。
+        </p>
+      </header>
+
+      <section class="card practice-card" aria-labelledby="practice-title">
+        <div class="card-head">
+          <div>
+            <p id="session-label" class="meta">Practice Session</p>
+            <h2 id="practice-title">問題を読み、1つ選んで解答してください</h2>
+          </div>
+          <span id="status-badge" class="status-badge">Ready</span>
+        </div>
+
+        <div id="app" class="practice-panel" aria-live="polite"></div>
+      </section>
+    </main>
+
+    <script type="module" src="./scripts/app.js"></script>
+  </body>
+</html>

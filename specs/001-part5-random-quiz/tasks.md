@@ -23,10 +23,10 @@
 
 **Purpose**: 静的 Web アプリとローカル Docker 確認環境の土台を作る
 
-- [ ] T001 Create the static app directory structure in app/index.html, app/styles/main.css, app/scripts/app.js, app/scripts/question-store.js, app/scripts/session-state.js, app/scripts/ui-renderer.js, and app/data/questions.json
-- [ ] T002 Create the Docker-based local preview setup in Dockerfile, docker-compose.yml, and docker/nginx.conf
-- [ ] T003 [P] Create the manual verification checklist in tests/manual/practice-checklist.md
-- [ ] T004 Define the MVP scope and deferred scope notes in specs/001-part5-random-quiz/quickstart.md
+- [X] T001 Create the static app directory structure in app/index.html, app/styles/main.css, app/scripts/app.js, app/scripts/question-store.js, app/scripts/session-state.js, app/scripts/ui-renderer.js, and app/data/questions.json
+- [X] T002 Create the Docker-based local preview setup in Dockerfile, docker-compose.yml, and docker/nginx.conf
+- [X] T003 [P] Create the manual verification checklist in tests/manual/practice-checklist.md
+- [X] T004 Define the MVP scope and deferred scope notes in specs/001-part5-random-quiz/quickstart.md
 
 ---
 
@@ -36,14 +36,14 @@
 
 **⚠️ CRITICAL**: No user story work can begin until this phase is complete
 
-- [ ] T005 Create the question data set with validated sample items in app/data/questions.json
-- [ ] T006 [P] Implement question loading and schema validation in app/scripts/question-store.js
-- [ ] T007 [P] Implement session and attempt state transitions in app/scripts/session-state.js
-- [ ] T008 Define shared loading, error, correct, and incorrect UI styles in app/styles/main.css
-- [ ] T009 Build the base HTML shell and application mount points in app/index.html
-- [ ] T010 Implement shared rendering helpers for loading and error states in app/scripts/ui-renderer.js
-- [ ] T011 Wire app bootstrap, initialization flow, and failure handling in app/scripts/app.js
-- [ ] T012 Review input constraints and localStorage usage boundaries in specs/001-part5-random-quiz/quickstart.md and tests/manual/practice-checklist.md
+- [X] T005 Create the question data set with validated sample items in app/data/questions.json
+- [X] T006 [P] Implement question loading and schema validation in app/scripts/question-store.js
+- [X] T007 [P] Implement session and attempt state transitions in app/scripts/session-state.js
+- [X] T008 Define shared loading, error, correct, and incorrect UI styles in app/styles/main.css
+- [X] T009 Build the base HTML shell and application mount points in app/index.html
+- [X] T010 Implement shared rendering helpers for loading and error states in app/scripts/ui-renderer.js
+- [X] T011 Wire app bootstrap, initialization flow, and failure handling in app/scripts/app.js
+- [X] T012 Review input constraints and localStorage usage boundaries in specs/001-part5-random-quiz/quickstart.md and tests/manual/practice-checklist.md
 
 **Checkpoint**: Foundation ready - user story implementation can now begin in parallel
 
@@ -57,18 +57,18 @@
 
 ### Validation for User Story 1
 
-- [ ] T013 [P] [US1] Add the User Story 1 acceptance steps to tests/manual/practice-checklist.md
-- [ ] T014 [P] [US1] Add question data validation cases for prompt, choices, correctChoiceId, and explanation in tests/manual/practice-checklist.md
+- [X] T013 [P] [US1] Add the User Story 1 acceptance steps to tests/manual/practice-checklist.md
+- [X] T014 [P] [US1] Add question data validation cases for prompt, choices, correctChoiceId, and explanation in tests/manual/practice-checklist.md
 
 ### Implementation for User Story 1
 
-- [ ] T015 [P] [US1] Implement randomized first-question selection from the validated data set in app/scripts/question-store.js
-- [ ] T016 [P] [US1] Implement answer selection and submission state updates in app/scripts/session-state.js
-- [ ] T017 [US1] Implement question, choices, and submit-action rendering in app/scripts/ui-renderer.js
-- [ ] T018 [US1] Implement immediate feedback rendering for correct/incorrect state, correct answer, and explanation in app/scripts/ui-renderer.js
-- [ ] T019 [US1] Connect question display, answer submission, and re-submit prevention in app/scripts/app.js
-- [ ] T020 [US1] Apply mobile-first layout and visual feedback styling for the primary answer flow in app/styles/main.css
-- [ ] T021 [US1] Update the semantic practice screen structure for the answer flow in app/index.html
+- [X] T015 [P] [US1] Implement randomized first-question selection from the validated data set in app/scripts/question-store.js
+- [X] T016 [P] [US1] Implement answer selection and submission state updates in app/scripts/session-state.js
+- [X] T017 [US1] Implement question, choices, and submit-action rendering in app/scripts/ui-renderer.js
+- [X] T018 [US1] Implement immediate feedback rendering for correct/incorrect state, correct answer, and explanation in app/scripts/ui-renderer.js
+- [X] T019 [US1] Connect question display, answer submission, and re-submit prevention in app/scripts/app.js
+- [X] T020 [US1] Apply mobile-first layout and visual feedback styling for the primary answer flow in app/styles/main.css
+- [X] T021 [US1] Update the semantic practice screen structure for the answer flow in app/index.html
 
 **Checkpoint**: User Story 1 should be fully functional and independently demoable
 
@@ -82,16 +82,16 @@
 
 ### Validation for User Story 2
 
-- [ ] T022 [P] [US2] Add the repeated-practice acceptance steps to tests/manual/practice-checklist.md
-- [ ] T023 [P] [US2] Add state reset and duplicate-question review checks to tests/manual/practice-checklist.md
+- [X] T022 [P] [US2] Add the repeated-practice acceptance steps to tests/manual/practice-checklist.md
+- [X] T023 [P] [US2] Add state reset and duplicate-question review checks to tests/manual/practice-checklist.md
 
 ### Implementation for User Story 2
 
-- [ ] T024 [P] [US2] Extend question sequencing and remaining-question handling in app/scripts/question-store.js
-- [ ] T025 [P] [US2] Extend session progress and next-question transitions in app/scripts/session-state.js
-- [ ] T026 [US2] Render the next-question action and cleared attempt state in app/scripts/ui-renderer.js
-- [ ] T027 [US2] Wire next-question navigation, repeated practice loop, and end-of-sequence fallback in app/scripts/app.js
-- [ ] T028 [US2] Adjust feedback and transition styling for continuous practice in app/styles/main.css
+- [X] T024 [P] [US2] Extend question sequencing and remaining-question handling in app/scripts/question-store.js
+- [X] T025 [P] [US2] Extend session progress and next-question transitions in app/scripts/session-state.js
+- [X] T026 [US2] Render the next-question action and cleared attempt state in app/scripts/ui-renderer.js
+- [X] T027 [US2] Wire next-question navigation, repeated practice loop, and end-of-sequence fallback in app/scripts/app.js
+- [X] T028 [US2] Adjust feedback and transition styling for continuous practice in app/styles/main.css
 
 **Checkpoint**: User Stories 1 and 2 should both work as independent practice increments
 
@@ -105,15 +105,15 @@
 
 ### Validation for User Story 3
 
-- [ ] T029 [P] [US3] Add mobile viewport acceptance checks to tests/manual/practice-checklist.md
-- [ ] T030 [P] [US3] Add tap-target, readability, and error-state checks for mobile in tests/manual/practice-checklist.md
+- [X] T029 [P] [US3] Add mobile viewport acceptance checks to tests/manual/practice-checklist.md
+- [X] T030 [P] [US3] Add tap-target, readability, and error-state checks for mobile in tests/manual/practice-checklist.md
 
 ### Implementation for User Story 3
 
-- [ ] T031 [P] [US3] Refine the page structure and viewport metadata for mobile browsers in app/index.html
-- [ ] T032 [US3] Implement responsive spacing, typography, and tap-target sizing in app/styles/main.css
-- [ ] T033 [US3] Adjust feedback, error, and next-action rendering order for small screens in app/scripts/ui-renderer.js
-- [ ] T034 [US3] Ensure mobile-specific UI states and focus movement are coordinated in app/scripts/app.js
+- [X] T031 [P] [US3] Refine the page structure and viewport metadata for mobile browsers in app/index.html
+- [X] T032 [US3] Implement responsive spacing, typography, and tap-target sizing in app/styles/main.css
+- [X] T033 [US3] Adjust feedback, error, and next-action rendering order for small screens in app/scripts/ui-renderer.js
+- [X] T034 [US3] Ensure mobile-specific UI states and focus movement are coordinated in app/scripts/app.js
 
 **Checkpoint**: All user stories should now be independently functional on mobile browsers
 
@@ -123,9 +123,9 @@
 
 **Purpose**: 複数ストーリーにまたがる仕上げとリリース準備
 
-- [ ] T035 [P] Update deployment and local run instructions for Cloudflare Pages and Docker in specs/001-part5-random-quiz/quickstart.md
+- [X] T035 [P] Update deployment and local run instructions for Cloudflare Pages and Docker in specs/001-part5-random-quiz/quickstart.md
 - [ ] T036 Verify the full manual checklist and record final acceptance results in tests/manual/practice-checklist.md
-- [ ] T037 Review question content safety, malformed data handling, and localStorage non-use or limited-use behavior in app/scripts/question-store.js, app/scripts/session-state.js, and tests/manual/practice-checklist.md
+- [X] T037 Review question content safety, malformed data handling, and localStorage non-use or limited-use behavior in app/scripts/question-store.js, app/scripts/session-state.js, and tests/manual/practice-checklist.md
 
 ---
 
