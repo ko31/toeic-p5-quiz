@@ -80,11 +80,6 @@ export function renderQuestionView({
       <span>${escapeHtml(progressLabel)}</span>
       <span>${escapeHtml(statsLabel)}</span>
     </div>
-    <div class="utility-actions">
-      <button type="button" class="button button-tertiary" id="back-to-top">
-        TOPに戻る
-      </button>
-    </div>
     <p class="prompt">${escapeHtml(question.prompt)}</p>
     <div class="choice-list" role="list">
       ${renderChoices(question, attempt)}

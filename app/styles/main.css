@@ -188,8 +188,7 @@ select {
 }
 
 .actions,
-.feedback-actions,
-.utility-actions {
+.feedback-actions {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
@@ -231,15 +230,6 @@ select {
 .button-secondary {
   background: rgba(12, 109, 98, 0.09);
   color: var(--primary-strong);
-}
-
-.button-tertiary {
-  min-height: 40px;
-  padding: 0 16px;
-  border: 1px solid rgba(82, 96, 109, 0.18);
-  background: rgba(255, 255, 255, 0.7);
-  color: var(--muted);
-  box-shadow: none;
 }
 
 .feedback-box,
@@ -339,8 +329,7 @@ select {
   }
 
   .actions,
-  .feedback-actions,
-  .utility-actions {
+  .feedback-actions {
     flex-direction: column;
   }
 

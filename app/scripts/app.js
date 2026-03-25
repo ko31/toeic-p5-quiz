@@ -87,17 +87,6 @@ function showPracticeScreen() {
   startTimer();
 }
 
-function hidePracticeScreen() {
-  state.practiceStarted = false;
-  elements.page.classList.remove("is-practice");
-  elements.practiceScreen.hidden = true;
-
-  if (state.timerId) {
-    clearInterval(state.timerId);
-    state.timerId = null;
-  }
-}
-
 function createNewSession() {
   state.session = createSession(createQuestionSequence(state.questions, state.lastQuestionId));
 }
@@ -145,16 +134,6 @@ function handleNextQuestion() {
   render();
 }
 
-function handleReturnToTop() {
-  const shouldReturn = window.confirm("学習を終了してTOPに戻りますか？");
-
-  if (!shouldReturn) {
-    return;
-  }
-
-  hidePracticeScreen();
-}
-
 function bindEvents() {
   if (state.eventsBound) {
     return;
@@ -174,11 +153,6 @@ function bindEvents() {
 
     if (event.target.id === "next-question") {
       handleNextQuestion();
-      return;
-    }
-
-    if (event.target.id === "back-to-top") {
-      handleReturnToTop();
       return;
     }
 
