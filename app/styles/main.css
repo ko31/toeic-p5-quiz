@@ -269,9 +269,18 @@ select {
 }
 
 .summary-row {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
   color: var(--muted);
   font-size: 0.88rem;
+  line-height: 1.4;
+}
+
+.summary-row span:last-child {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
 }
 
 .visually-hidden {
@@ -326,5 +335,10 @@ select {
 
   .summary-row {
     font-size: 0.84rem;
+    gap: 8px;
+  }
+
+  .summary-row span:last-child {
+    max-width: 62%;
   }
 }

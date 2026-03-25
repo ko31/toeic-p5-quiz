@@ -29,10 +29,40 @@ const state = {
   lastQuestionId: null,
   eventsBound: false,
   practiceStarted: false,
+  timerId: null,
 };
 
 function getCurrentQuestion() {
   return getQuestionById(state.questions, state.session.currentAttempt.questionId);
+}
+
+function formatElapsedTime(startedAt) {
+  const elapsedSeconds = Math.max(
+    0,
+    Math.floor((Date.now() - new Date(startedAt).getTime()) / 1000),
+  );
+  const minutes = String(Math.floor(elapsedSeconds / 60)).padStart(2, "0");
+  const seconds = String(elapsedSeconds % 60).padStart(2, "0");
+  return `${minutes}:${seconds}`;
+}
+
+function getStatsLabel(session) {
+  const answeredCount = session.attempts.length;
+  const correctCount = session.attempts.filter((attempt) => attempt.isCorrect).length;
+  const accuracy = answeredCount === 0 ? 0 : Math.round((correctCount / answeredCount) * 100);
+  return `正答率:${accuracy}%(${correctCount}/${answeredCount}) ・ ${formatElapsedTime(session.startedAt)}`;
+}
+
+function startTimer() {
+  if (state.timerId) {
+    clearInterval(state.timerId);
+  }
+
+  state.timerId = window.setInterval(() => {
+    if (state.practiceStarted && state.session) {
+      render();
+    }
+  }, 1000);
 }
 
 function render() {
@@ -45,6 +75,7 @@ function render() {
     question,
     attempt,
     progressLabel: `${current}問目`,
+    statsLabel: getStatsLabel(state.session),
     isLastQuestion: current === state.session.questionOrder.length,
   });
 }
@@ -53,6 +84,7 @@ function showPracticeScreen() {
   state.practiceStarted = true;
   elements.page.classList.add("is-practice");
   elements.practiceScreen.hidden = false;
+  startTimer();
 }
 
 function restartSequence() {

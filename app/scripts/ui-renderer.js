@@ -69,6 +69,7 @@ export function renderQuestionView({
   question,
   attempt,
   progressLabel,
+  statsLabel,
   isLastQuestion,
 }) {
   const submitDisabled = !attempt.selectedChoiceId || attempt.submitted;
@@ -77,6 +78,7 @@ export function renderQuestionView({
   container.innerHTML = `
     <div class="summary-row">
       <span>${escapeHtml(progressLabel)}</span>
+      <span>${escapeHtml(statsLabel)}</span>
     </div>
     <p class="prompt">${escapeHtml(question.prompt)}</p>
     <div class="choice-list" role="list">
