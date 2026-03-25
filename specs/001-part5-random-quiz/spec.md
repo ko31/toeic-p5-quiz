@@ -15,15 +15,18 @@
 **Why this priority**: ランダム出題、選択式回答、即時フィードバックがそろって初めて
 Part 5 練習アプリとして成立するため。
 
-**Independent Test**: ブラウザでアプリを開き、表示された1問に回答し、その場で
-正誤と解説が表示されることを確認できれば、このストーリー単体で価値を検証できる。
+**Independent Test**: ブラウザでアプリを開き、開始画面から練習を始め、表示された1問に回答し、
+その場で正誤、正答、問題文の日本語訳、解説が表示されることを確認できれば、
+このストーリー単体で価値を検証できる。
 
 **Acceptance Scenarios**:
 
-1. **Given** 学習者が練習画面を開いている, **When** 最初の問題が表示される,
-   **Then** Part 5 形式の問題文と4つの選択肢が表示される
+1. **Given** 学習者が開始前の画面を開いている, **When** 問題開始操作を行う,
+   **Then** 練習画面へ切り替わり、Part 5 形式の問題文と4つの選択肢が表示される
 2. **Given** 学習者が未回答の問題を見ている, **When** 1つの選択肢を選んで解答する,
-   **Then** 即座に正誤、正答、解説が同じ画面内に表示される
+   **Then** 即座に正誤、正答、問題文の日本語訳、解説が同じ画面内に表示される
+3. **Given** 学習者が練習中である, **When** 問題ページを見ている,
+   **Then** 問題番号、正答率、経過時間が主問題を邪魔しない情報量で表示される
 
 ---
 
@@ -66,8 +69,7 @@ Part 5 練習アプリとして成立するため。
 
 - 問題データが一時的に取得できない場合は、学習者に再試行可能なエラーメッセージを表示し、
   回答不能なまま空白画面にしない。
-- 同じ問題が短い回数内で連続表示される可能性がある場合は、その扱いを定義し、
-  学習者に不自然な重複体験を与えない。
+- 問題群は重複しない問題文で構成し、学習者に不自然な重複体験を与えない。
 - 学習者が回答前に次の問題へ進もうとした場合は、誤操作を防ぐ案内を表示するか、
   進行を抑止する。
 - 解説が長い場合でも、モバイル画面で正答と解説の両方を読み取れる表示にする。
@@ -81,21 +83,28 @@ Part 5 練習アプリとして成立するため。
 - **FR-003**: Users MUST be able to select one answer choice and submit that choice with a single clear action.
 - **FR-004**: System MUST immediately display whether the selected answer is correct or incorrect after submission.
 - **FR-005**: System MUST display the correct answer and a plain-language explanation immediately after submission.
+- **FR-005a**: System MUST display a Japanese translation of the completed question sentence immediately after submission.
 - **FR-006**: System MUST prevent the same question instance from being answered multiple times after feedback is shown.
 - **FR-007**: System MUST provide a clear action to move to the next practice question after feedback is displayed.
 - **FR-008**: System MUST load the next question as a new attempt so the learner can continue practicing repeatedly.
 - **FR-009**: System MUST support a randomized question order for each practice session.
 - **FR-010**: System MUST optimize the primary practice flow for a single learner using the app in a web browser on mobile devices.
 - **FR-011**: System MUST communicate loading, error, and ready states in a way that makes the current app state unambiguous.
-- **FR-012**: System MUST ensure each question record includes the problem text, answer choices, correct answer, and explanation needed for evaluation.
+- **FR-012**: System MUST ensure each question record includes the problem text, answer choices, correct answer, explanation, and Japanese translation needed for evaluation and review.
+- **FR-013**: System MUST provide a minimal start screen before practice begins, containing only the title, short description, and a clear action to start practice.
+- **FR-014**: System MUST display current accuracy and elapsed practice time during the practice session without obscuring the question and choices.
+- **FR-015**: System MUST support a question set of 1000 unique prompt records without degrading the short-loop practice flow on common modern mobile browsers.
 
 ### UX & Feedback Requirements *(mandatory)*
 
 - The primary user flow MUST be completable in a short loop of four steps: open practice, read one question, answer, review feedback, then continue to the next question.
+- Practice MUST begin from a minimal top screen and transition to a distraction-reduced practice screen where the question and choices remain the visual priority.
 - Immediately after answer submission, the screen MUST visually indicate that the answer was received and then show correctness, correct answer, and explanation without requiring a page refresh.
+- Feedback MUST include the Japanese translation of the full sentence after the blank is resolved so the learner can confirm meaning after answering.
 - The screen MUST clearly distinguish unanswered, answered-correct, answered-incorrect, loading, and error states.
 - The interface MUST prioritize one main action at a time so that the learner is not asked to choose between multiple competing actions on the same screen.
 - The mobile layout MUST keep the question, answer choices, feedback, and next-question action usable without horizontal scrolling.
+- The question and all four answer choices SHOULD fit within the first viewport on common mobile portrait widths whenever the item length is within the normal dataset range.
 
 ### Data & Security Requirements *(include if feature stores or processes user data)*
 
@@ -106,9 +115,9 @@ Part 5 練習アプリとして成立するため。
 
 ### Key Entities *(include if feature involves data)*
 
-- **Practice Question**: A single TOEIC Part 5 style item containing the prompt, answer choices, correct choice, and explanation.
+- **Practice Question**: A single TOEIC Part 5 style item containing the prompt, answer choices, correct choice, explanation, and completed Japanese translation.
 - **Practice Attempt**: A learner interaction for one displayed question, including the presented question, selected answer, result status, and completion state.
-- **Practice Session**: A sequence of randomly ordered practice attempts experienced continuously by one learner in one browsing session.
+- **Practice Session**: A sequence of randomly ordered practice attempts experienced continuously by one learner in one browsing session, including running accuracy, elapsed time, and current question position.
 
 ## Success Criteria *(mandatory)*
 
@@ -125,9 +134,10 @@ Part 5 練習アプリとして成立するため。
 - 初期リリースでは単一ユーザーの個人学習利用を前提とし、アカウント機能は含まない。
 - 問題データは TOEIC Part 5 に類似した独自作成コンテンツを利用し、実際の試験問題そのものは扱わない。
 - 初期リリースでは進捗分析や履歴保存よりも、1問ずつ素早く解いて反復する体験を優先する。
+- 初期リリースの問題データは 1000 問の重複しない問題文で構成する。
 - ブラウザ利用中は一般的なモバイル回線または安定したネットワーク接続が利用できる。
 
 ## MVP Boundaries *(mandatory)*
 
-- 含めるもの: ランダム出題、4択回答、即時の正誤表示、正答表示、解説表示、次の問題への遷移、モバイル最適化された単一ユーザー向けブラウザUI。
+- 含めるもの: 開始画面、ランダム出題、4択回答、即時の正誤表示、正答表示、問題文の日本語訳表示、解説表示、正答率と経過時間の表示、次の問題への遷移、モバイル最適化された単一ユーザー向けブラウザUI。
 - 後続反復へ回すもの: 学習履歴の保存、成績分析、カテゴリ絞り込み、難易度調整、ログイン機能、音声や画像を使う拡張問題形式。
