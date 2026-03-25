@@ -1,6 +1,6 @@
 const QUESTION_DATA_PATH = "./data/questions.json";
 
-const REQUIRED_FIELDS = ["id", "prompt", "choices", "correctChoiceId", "explanation"];
+const REQUIRED_FIELDS = ["id", "prompt", "choices", "correctChoiceId", "explanation", "translationJa"];
 
 function isNonEmptyString(value) {
   return typeof value === "string" && value.trim().length > 0;
@@ -46,6 +46,10 @@ function validateQuestionShape(question, seenIds) {
 
   if (!isNonEmptyString(question.explanation)) {
     throw new Error(`Question ${question.id} has an empty explanation`);
+  }
+
+  if (!isNonEmptyString(question.translationJa)) {
+    throw new Error(`Question ${question.id} has an empty translationJa`);
   }
 }
 

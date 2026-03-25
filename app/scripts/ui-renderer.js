@@ -59,6 +59,7 @@ function renderFeedback(question, attempt) {
       <h3>${title}</h3>
       <p>正答: ${escapeHtml(question.correctChoiceId)}. ${escapeHtml(answerText ?? "")}</p>
       <p>${escapeHtml(question.explanation)}</p>
+      <p><strong>問題文の日本語訳:</strong> ${escapeHtml(question.translationJa)}</p>
     </section>
   `;
 }
