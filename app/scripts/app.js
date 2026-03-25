@@ -41,18 +41,17 @@ function getCurrentQuestion() {
 function render() {
   const question = getCurrentQuestion();
   const attempt = state.session.currentAttempt;
-  const total = state.session.questionOrder.length;
   const current = state.session.currentIndex + 1;
 
-  elements.sessionLabel.textContent = `Question ${current} / ${total}`;
+  elements.sessionLabel.textContent = `${current}問目`;
   updateStatus(attempt.submitted ? "Answered" : "Ready", attempt.submitted ? "is-success" : "");
 
   renderQuestionView({
     container: elements.app,
     question,
     attempt,
-    progressLabel: `${current}問目 / 全${total}問`,
-    isLastQuestion: current === total,
+    progressLabel: `${current}問目`,
+    isLastQuestion: current === state.session.questionOrder.length,
   });
 }
 
