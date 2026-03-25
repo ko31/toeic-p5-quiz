@@ -53,8 +53,18 @@ select {
   padding: 24px 18px 56px;
 }
 
+.page.is-practice {
+  width: min(100%, 760px);
+  padding-top: 18px;
+}
+
 .hero {
   padding: 16px 4px 24px;
+}
+
+.page.is-practice .hero,
+.page.is-practice .landing-card {
+  display: none;
 }
 
 .eyebrow,
@@ -90,62 +100,32 @@ select {
   backdrop-filter: blur(14px);
 }
 
+.landing-card {
+  padding: 20px 24px;
+}
+
 .practice-card {
-  padding: 20px;
-}
-
-.card-head {
-  display: flex;
-  gap: 12px;
-  align-items: flex-start;
-  justify-content: space-between;
-  margin-bottom: 20px;
-}
-
-.card-head h2 {
-  margin: 0;
-  font-size: clamp(1.1rem, 3.6vw, 1.5rem);
-  line-height: 1.4;
-}
-
-.status-badge {
-  padding: 10px 14px;
-  border-radius: 999px;
-  background: rgba(12, 109, 98, 0.1);
-  color: var(--primary-strong);
-  font-size: 0.82rem;
-  font-weight: 700;
-  white-space: nowrap;
-}
-
-.status-badge.is-error {
-  background: var(--error-bg);
-  color: var(--error-text);
-}
-
-.status-badge.is-success {
-  background: var(--success-bg);
-  color: var(--success-text);
+  padding: 16px;
 }
 
 .practice-panel {
   display: grid;
-  gap: 18px;
+  gap: 14px;
 }
 
 .prompt {
   margin: 0;
-  padding: 18px;
+  padding: 16px 18px;
   border-radius: var(--radius-md);
   background: linear-gradient(135deg, rgba(12, 109, 98, 0.09), rgba(228, 211, 182, 0.25));
-  font-size: 1.05rem;
+  font-size: 1rem;
   font-weight: 700;
-  line-height: 1.75;
+  line-height: 1.65;
 }
 
 .choice-list {
   display: grid;
-  gap: 12px;
+  gap: 10px;
 }
 
 .choice-button {
@@ -154,12 +134,12 @@ select {
   border-radius: var(--radius-md);
   background: var(--surface-strong);
   color: inherit;
-  padding: 16px 18px;
+  padding: 14px 16px;
   text-align: left;
   display: flex;
   gap: 12px;
   align-items: flex-start;
-  min-height: 58px;
+  min-height: 54px;
   cursor: pointer;
   transition: transform 140ms ease, border-color 140ms ease, box-shadow 140ms ease;
 }
@@ -236,6 +216,11 @@ select {
   transform: none;
 }
 
+.button-large {
+  min-height: 58px;
+  padding-inline: 28px;
+}
+
 .button-primary {
   background: var(--primary);
   color: #fff;
@@ -250,9 +235,9 @@ select {
 .feedback-box,
 .message-box {
   border-radius: var(--radius-md);
-  padding: 18px;
+  padding: 16px;
   display: grid;
-  gap: 10px;
+  gap: 8px;
 }
 
 .feedback-box h3,
@@ -284,12 +269,9 @@ select {
 }
 
 .summary-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
+  display: block;
   color: var(--muted);
-  font-size: 0.94rem;
+  font-size: 0.88rem;
 }
 
 .visually-hidden {
@@ -309,27 +291,28 @@ select {
     padding: 16px 14px 40px;
   }
 
+  .page.is-practice {
+    padding-top: 12px;
+  }
+
+  .landing-card {
+    padding: 16px 18px;
+  }
+
   .practice-card {
-    padding: 16px;
+    padding: 14px;
     border-radius: 24px;
   }
 
-  .card-head {
-    flex-direction: column;
-  }
-
-  .status-badge {
-    align-self: flex-start;
-  }
-
   .prompt {
-    padding: 16px;
-    font-size: 1rem;
+    padding: 14px;
+    font-size: 0.96rem;
+    line-height: 1.55;
   }
 
   .choice-button {
-    min-height: 60px;
-    padding: 15px 16px;
+    min-height: 52px;
+    padding: 13px 14px;
   }
 
   .button {
@@ -342,7 +325,6 @@ select {
   }
 
   .summary-row {
-    flex-direction: column;
-    align-items: flex-start;
+    font-size: 0.84rem;
   }
 }

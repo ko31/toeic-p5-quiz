@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="./styles/main.css" />
   </head>
   <body>
-    <main class="page">
+    <main class="page" id="page">
       <header class="hero">
         <p class="eyebrow">TOEIC Part 5 Practice</p>
         <h1>1問ずつ、すぐ確認。</h1>
@@ -16,15 +16,15 @@
         </p>
       </header>
 
-      <section class="card practice-card" aria-labelledby="practice-title">
-        <div class="card-head">
-          <div>
-            <p id="session-label" class="meta">1問目</p>
-            <h2 id="practice-title">問題を読み、1つ選んで解答してください</h2>
-          </div>
-          <span id="status-badge" class="status-badge">Ready</span>
+      <section class="card landing-card" aria-labelledby="landing-title">
+        <div class="actions">
+          <button type="button" class="button button-primary button-large" id="start-practice">
+            問題を始める
+          </button>
         </div>
+      </section>
 
+      <section class="card practice-card" id="practice-screen" hidden>
         <div id="app" class="practice-panel" aria-live="polite"></div>
       </section>
     </main>

@@ -77,7 +77,6 @@ export function renderQuestionView({
   container.innerHTML = `
     <div class="summary-row">
       <span>${escapeHtml(progressLabel)}</span>
-      <span>${attempt.submitted ? "解説を確認して次へ進めます" : "1つ選んで解答してください"}</span>
     </div>
     <p class="prompt">${escapeHtml(question.prompt)}</p>
     <div class="choice-list" role="list">
@@ -99,6 +98,15 @@ export function renderQuestionView({
       </button>
     </div>
   `;
+}
+
+export function renderLoadingView(container) {
+  renderMessage({
+    container,
+    title: "問題を準備しています",
+    message: "問題データを読み込み、練習セッションを開始しています。",
+    variant: "loading",
+  });
 }
 
 export function renderMessage({
