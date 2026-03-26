@@ -3,7 +3,9 @@
 ## User Story 1
 
 - [x] 初回表示で 1 問分の問題文と 4 つの選択肢が表示される
-- [x] 問題データに `prompt`、4 件の `choices`、`correctChoiceId`、`explanation` がそろっている
+- [x] 問題データに `category`、`difficulty`、`prompt`、4 件の `choices`、`correctChoiceId`、`explanation`、`translationJa` がそろっている
+- [x] 各 `prompt` に `_____` の空欄がちょうど 1 つ含まれている
+- [x] 完全一致の `prompt` と完全一致の `choice-set` が表示対象から除外される
 - [x] 選択肢を 1 つ選んで解答すると、その場で正誤、正答、解説が表示される
 - [x] 解答後に同じ問題を再送信できない
 
@@ -28,6 +30,7 @@
 
 - `node --check` で `app/scripts/*.js` の構文確認を実施。
 - `python3 -m json.tool app/data/questions.json` で問題 JSON の構文確認を実施。
+- `node tools/validate-questions.mjs` で重複傾向、選択肢重複、翻訳文のメタ説明を検査できる。
 - Node 実行で出題、解答、即時フィードバック、次問遷移、状態リセットを確認。
 - `curl -I` で `/` と `/data/questions.json` の HTTP 200 を確認。
 - User Story 3 の視覚確認は、実ブラウザまたはヘッドレスブラウザがないため未実施。
