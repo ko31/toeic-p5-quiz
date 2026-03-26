@@ -70,6 +70,8 @@ Part 5 練習アプリとして成立するため。
 - 問題データが一時的に取得できない場合は、学習者に再試行可能なエラーメッセージを表示し、
   回答不能なまま空白画面にしない。
 - 問題群は重複しない問題文で構成し、学習者に不自然な重複体験を与えない。
+- 問題文に穴埋め箇所が存在しない、または穴埋め箇所が複数ある不正な問題データは表示対象から除外する。
+- 選択肢の組み合わせや固有名詞の再利用が集中して、短時間の演習中に強い既視感を与える状態を避ける。
 - 学習者が回答前に次の問題へ進もうとした場合は、誤操作を防ぐ案内を表示するか、
   進行を抑止する。
 - 解説が長い場合でも、モバイル画面で正答と解説の両方を読み取れる表示にする。
@@ -91,9 +93,12 @@ Part 5 練習アプリとして成立するため。
 - **FR-010**: System MUST optimize the primary practice flow for a single learner using the app in a web browser on mobile devices.
 - **FR-011**: System MUST communicate loading, error, and ready states in a way that makes the current app state unambiguous.
 - **FR-012**: System MUST ensure each question record includes the problem text, answer choices, correct answer, explanation, and Japanese translation needed for evaluation and review.
+- **FR-012a**: System MUST ensure each question prompt contains exactly one blank placeholder so every item is presented as a valid TOEIC Part 5 style fill-in-the-blank question.
 - **FR-013**: System MUST provide a minimal start screen before practice begins, containing only the title, short description, and a clear action to start practice.
 - **FR-014**: System MUST display current accuracy and elapsed practice time during the practice session without obscuring the question and choices.
 - **FR-015**: System MUST support a question set of 1000 unique prompt records without degrading the short-loop practice flow on common modern mobile browsers.
+- **FR-015a**: System MUST ensure the shipped question set contains no exact duplicate answer choice sets, so distinct items do not feel mechanically repeated.
+- **FR-015b**: System MUST diversify reusable proper nouns such as person names, company names, initiative names, and product names so the same full name does not recur so often that it creates obvious déjà vu during normal practice.
 
 ### UX & Feedback Requirements *(mandatory)*
 
@@ -111,11 +116,13 @@ Part 5 練習アプリとして成立するため。
 - The feature MAY operate without personally identifiable information and SHOULD avoid collecting personal data in the MVP.
 - If the app stores learning history in the future, it MUST store only data needed for practice continuity or progress review.
 - Question content, correct answers, and explanations MUST be validated before being shown so malformed data does not produce invalid grading or misleading feedback.
+- Question data validation MUST reject records with a missing blank placeholder, multiple blank placeholders, duplicate choice IDs, exact duplicate prompt text, or exact duplicate choice sets.
 - Any user-triggered input accepted by the feature MUST be constrained to valid answer selection and navigation actions for the current question.
 
 ### Key Entities *(include if feature involves data)*
 
 - **Practice Question**: A single TOEIC Part 5 style item containing the prompt, answer choices, correct choice, explanation, and completed Japanese translation.
+- **Question Quality Rule**: A validation rule set that defines whether a question can be shipped, including exactly one blank in the prompt, one correct answer, no exact prompt duplication, no exact choice-set duplication, and controlled repetition of reusable proper nouns.
 - **Practice Attempt**: A learner interaction for one displayed question, including the presented question, selected answer, result status, and completion state.
 - **Practice Session**: A sequence of randomly ordered practice attempts experienced continuously by one learner in one browsing session, including running accuracy, elapsed time, and current question position.
 
@@ -128,6 +135,7 @@ Part 5 練習アプリとして成立するため。
 - **SC-003**: 90% 以上の学習者が、説明なしで 3 問連続の練習を完了できる。
 - **SC-004**: モバイル表示幅での主要操作において、横スクロールを必要とする画面が発生しない。
 - **SC-005**: Users can understand whether their action succeeded, failed, or is processing without needing to refresh or retry blindly.
+- **SC-006**: リリース対象の問題データ検証で、穴埋め欠落問題、完全重複の問題文、完全重複の選択肢セットが 0 件であることを確認できる。
 
 ## Assumptions
 
@@ -135,6 +143,7 @@ Part 5 練習アプリとして成立するため。
 - 問題データは TOEIC Part 5 に類似した独自作成コンテンツを利用し、実際の試験問題そのものは扱わない。
 - 初期リリースでは進捗分析や履歴保存よりも、1問ずつ素早く解いて反復する体験を優先する。
 - 初期リリースの問題データは 1000 問の重複しない問題文で構成する。
+- 初期リリースでは問題データ品質を保つため、同一の完全固有名詞の過度な再利用は避ける。
 - ブラウザ利用中は一般的なモバイル回線または安定したネットワーク接続が利用できる。
 
 ## MVP Boundaries *(mandatory)*
